@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="html5,本地存储" />
+<meta name="description" >
+<title>转转转</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<style type="text/css">
+.demo{width:417px; height:417px; position:relative; margin:50px auto}
+#disk{width:417px; height:417px; background:url(disk.jpg) no-repeat ;}
+#start{width:163px; height:320px; position:absolute; top:80px; left:80px;}
+#start img{cursor:pointer}
+#text1{position:absolute; top:330px; left:110px; }
+</style>
+<h1 id="text">欢迎来到快(po)乐(chan)天地！</h1>
+<h2 id="text">本抽奖系统中奖概率为99.9%，尽情享受吧！！！</h2>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+<script type="text/javascript" src="jquery.easing.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	 $("#startbtn").click(function(){
+		lottery();
+	});
+});
+function lottery(){
+	$.ajax({
+		type: 'POST',
+		url: 'data.php',
+		dataType: 'json',
+		cache: false,
+		error: function(){
+			alert('出错了！');
+			return false;
+		},
+		success:function(json){
+			$("#startbtn").unbind('click').css("cursor","default");
+			var a = json.angle; //角度
+			var p = json.prize; //奖项
+			var flag = json.flag;  
+			$("#startbtn").rotate({
+				duration:3000, //转动时间
+				angle: 0,
+            	animateTo:1800+a, //转动角度
+				easing: $.easing.easeOutSine,
+				callback: function(){
+					if(p=='谢谢参与'){
+						var con = confirm('恭喜你，没中奖!\n'+'你的flag是：'+flag+'\n还要再来一次吗?');
+					}else{
+						var con = confirm('恭喜你，中了'+p+'!\n'+'你的flag是：'+flag+'\n还要再来一次吗?');
+					}
+					if(con){
+						lottery();
+					}else{
+						return false;
+					}
+				}
+			});
+		}
+	});
+}
+$(function(){
+	 $("#returnbutton").click(function(){
+		var con = confirm('真的要放弃吗?就差辣么一点点了!');
+		if(con){
+			window.location.href="https://www.xp0int.top/challenges";
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1></h1></div>
+</div>
+
+<div id="main">
+   <h2 class="top_title"></h2>
+   <div class="msg"></div>
+   <div class="demo">
+        <div id="disk"></div>
+        <div id="start"><img src="start.png" id="startbtn"></div>
+        <div id="text1"  ><h3 id="returnbutton">放弃请点击此处</h3></div>
+   </div>
+   <div class="ad_demo"><script src="/js/ad_js/ad_demo.js" type="text/javascript"></script></div><br/>
+</div>
+
+
+</body>
+</html>

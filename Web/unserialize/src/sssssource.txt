@@ -1,0 +1,7 @@
+if(isset($_GET['A']) && isset($_GET['B'])){
+	$md51=md5($_GET['A']);
+	$md52=md5($_GET['B']);
+	if($md51 == $md52){
+		show_source(__FILE__);
+	}
+}

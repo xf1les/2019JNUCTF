@@ -1,0 +1,2 @@
+#!/bin/sh
+ls /var/www/html/youcantfind/ | grep -v d0cb52940652171fc01a7639aa7285537f13ad97 |xargs rm -f 

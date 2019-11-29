@@ -1,0 +1,13 @@
+<?php
+
+$result = mysql_query("SELECT * FROM users where id='" . $_POST['id'] . "'");
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "用户名: " . $row['username'];
+  echo "<br />";
+  echo "密码: " . $row['password'];
+  }
+
+mysql_close($con);
+?>
